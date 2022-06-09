@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.js": "/static/js/main.56f6e22c.chunk.js",
+    "main.js.map": "/static/js/main.56f6e22c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c2e8e232.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c2e8e232.js.map",
+    "static/css/2.6a223ac6.chunk.css": "/static/css/2.6a223ac6.chunk.css",
+    "static/js/2.8607c121.chunk.js": "/static/js/2.8607c121.chunk.js",
+    "static/js/2.8607c121.chunk.js.map": "/static/js/2.8607c121.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.6a223ac6.chunk.css.map": "/static/css/2.6a223ac6.chunk.css.map",
+    "static/js/2.8607c121.chunk.js.LICENSE.txt": "/static/js/2.8607c121.chunk.js.LICENSE.txt",
+    "static/media/banner.78e1ed21.jpg": "/static/media/banner.78e1ed21.jpg",
+    "static/media/banner1.8be47809.png": "/static/media/banner1.8be47809.png",
+    "static/media/banner2.8df2b7c7.png": "/static/media/banner2.8df2b7c7.png",
+    "static/media/delivered.5c153c1f.png": "/static/media/delivered.5c153c1f.png",
+    "static/media/food1.b202d875.jpg": "/static/media/food1.b202d875.jpg",
+    "static/media/food10.2a94377b.jpg": "/static/media/food10.2a94377b.jpg",
+    "static/media/food11.2ac97587.jpg": "/static/media/food11.2ac97587.jpg",
+    "static/media/food12.fae5c00a.jpg": "/static/media/food12.fae5c00a.jpg",
+    "static/media/food13.6e747b42.jpg": "/static/media/food13.6e747b42.jpg",
+    "static/media/food14.a20bf38d.jpg": "/static/media/food14.a20bf38d.jpg",
+    "static/media/food15.c1dc79b6.jpg": "/static/media/food15.c1dc79b6.jpg",
+    "static/media/food2.7b78f379.jpg": "/static/media/food2.7b78f379.jpg",
+    "static/media/food3.dc8ccbf6.jpg": "/static/media/food3.dc8ccbf6.jpg",
+    "static/media/food4.41ee5b60.jpg": "/static/media/food4.41ee5b60.jpg",
+    "static/media/food5.31bac041.jpg": "/static/media/food5.31bac041.jpg",
+    "static/media/food6.d47b9f15.jpg": "/static/media/food6.d47b9f15.jpg",
+    "static/media/food7.b83e9eb7.jpg": "/static/media/food7.b83e9eb7.jpg",
+    "static/media/food8.5f5ed5ff.jpg": "/static/media/food8.5f5ed5ff.jpg",
+    "static/media/food9.48bd35f8.jpg": "/static/media/food9.48bd35f8.jpg",
+    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c2e8e232.js",
+    "static/css/2.6a223ac6.chunk.css",
+    "static/js/2.8607c121.chunk.js",
+    "static/js/main.56f6e22c.chunk.js"
+  ]
+}
