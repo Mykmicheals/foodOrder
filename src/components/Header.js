@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
 import { NavLink } from "react-router-dom";
 import { useCart } from "react-use-cart";
+import AuthContext from "../store/authContext";
 
 function Header() {
   const { totalUniqueItems } = useCart();
@@ -13,6 +14,10 @@ function Header() {
   const menuHandler = () => {
     setShow((showNav) => !showNav);
   };
+
+  const authCtx = useContext(AuthContext)
+
+let isLoggedIn = authCtx.isLoggedIn
 
   return (
     <div className="header">
@@ -43,12 +48,20 @@ function Header() {
               <p>Contact</p>
             </Link>
           </span>
-          <span className="res-span">
+          {!isLoggedIn && 
+            <span className="res-span">
             <NavLink activeClassName="active" to="/login">
               <span>Login</span>
             </NavLink>
           </span>
-      
+          }
+          {isLoggedIn &&
+            <span className="res-span">
+              <NavLink activeClassName="active" to="/login">
+                <span>Profile</span>
+              </NavLink>
+            </span>
+          }
         </nav>
       )}
 

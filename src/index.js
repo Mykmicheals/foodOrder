@@ -19,11 +19,14 @@ import ReactDom from 'react-dom'
 
 
 import App from './app'
+import { AuthContextProvider } from './store/authContext';
 
 ReactDom.render(
     <BrowserRouter>
         <CartProvider>
-            <App />
+            <AuthContextProvider>
+                <App />
+            </AuthContextProvider>
         </CartProvider>
 
     </BrowserRouter>,

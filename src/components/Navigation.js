@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+
+import { NavLink,useNavigate } from "react-router-dom";
 import CartContext from "../store/cartContext";
 import { useCart } from "react-use-cart";
+import AuthContext from "../store/authContext";
 
 function Navigation() {
+  const navigate = useNavigate()
   const { totalUniqueItems } = useCart();
   const cartCtx = useContext(CartContext);
 
@@ -13,6 +14,13 @@ function Navigation() {
     event.preventDefault();
     cartCtx.cartFunc();
   };
+  const authCtx = useContext(AuthContext)
+  var isLoggedIn = authCtx.isLoggedIn
+  
+  const logoutHandler = () => {
+    authCtx.logout()
+    navigate('/login')
+  }
 
   return (
     <nav className="navigation">
@@ -23,20 +31,30 @@ function Navigation() {
       </span>
       <span className="nav-span">
         <NavLink activeClassName="active" to="cart">
-        <span onClick={cartHandler}>My Cart <span id='cart-number'>{totalUniqueItems}
+          <span onClick={cartHandler}>My Cart <span id='cart-number'>{totalUniqueItems}
           </span> </span>
-        </NavLink>     
+        </NavLink>
       </span>
       <span className="nav-span">
-      <NavLink activeClassName="active" to="/contact">
+        <NavLink activeClassName="active" to="/contact">
           <span>Contact</span>
         </NavLink>
       </span>
-      <span className="nav-span">
+     {!isLoggedIn && <span className="nav-span">
         <NavLink activeClassName="active" to="/login">
           <span>Login</span>
         </NavLink>
-      </span>
+      </span>}
+
+      {isLoggedIn && <span className="nav-span">
+        <NavLink activeClassName="active" to="/login">
+          <span>Profile</span>
+        </NavLink>
+        
+      </span>}
+      {isLoggedIn && <span className="nav-span">
+            <span onClick={logoutHandler}>Logout</span>
+      </span>}
     </nav>
   );
 }

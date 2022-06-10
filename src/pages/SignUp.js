@@ -71,7 +71,7 @@ function SignUp() {
         event.preventDefault();
         if (formValid) {
             setLoading(true)
-            const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDKIKXum8lrtwR8a57BfpV27oqLf-QD9ws',
+            const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAoGAsZsuJRKb9uEanWU6JcByiJ50LyJZ0',
                 {
                     method: 'POST',
                     body: JSON.stringify({
@@ -80,13 +80,22 @@ function SignUp() {
                         returnSecureToken: true
                     }),
                     headers: {
-                        'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                     }
 
                 })
             setLoading(false)
-
             const data = await response.json()
+            // if (data && data.error && data.error.message) {
+            //     setError(data.error.message)
+            //     alert(error)
+            // }
+            if (data.error) {
+                setError(data.error.message)
+                alert(error)
+            }
+          
+            console.log(data)
             setEmailTouched(false);
         } else {
          setEmailTouched(true)
@@ -100,6 +109,7 @@ function SignUp() {
         <div className='logins'>
             <div className="contact-form">
                 <h4>SignUp</h4>
+                <p className='error'>{ error}</p>
                 <input
                     type='text'
                     onChange={firstNameHandler}
