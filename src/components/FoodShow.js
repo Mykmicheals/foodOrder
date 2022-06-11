@@ -101,7 +101,7 @@ function FoodShow() {
       {/* <SearchResult filteredData={filteredData} /> */}
 
 
-      <Rodal
+      {/* <Rodal
         className="modals"
         visible={cartCtx.cartOpen}
         onClose={cartCtx.cartFunc}
@@ -110,7 +110,7 @@ function FoodShow() {
         showMax="true"
       >
         <Cart />
-      </Rodal>
+      </Rodal> */}
     </Fragment>
   );
 }

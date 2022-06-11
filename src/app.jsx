@@ -16,6 +16,9 @@ import "slick-carousel/slick/slick-theme.css";
 import AuthContext from './store/authContext';
 import Error404 from './pages/Error404';
 import Head from './components/Head';
+import Rodal from 'rodal';
+import Cart from './components/Cart';
+import VerifyEmail from './pages/VerifyEmail';
 
 
 
@@ -24,12 +27,17 @@ function App() {
 
     var authCtx = useContext(AuthContext)
     var isLoggedIn = authCtx.isLoggedIn
+    const cartCtx = useContext(CartContext);
 
     const [cartOpen, setCartOpen] = useState(false)
     const [data, setData] = useState({})
 
     const cartHandler = () => {
         setCartOpen(cartOpen => !cartOpen)
+    }
+
+    const closeCart = () => {
+        setCartOpen(false)
     }
 
     const addData = (data) => {
@@ -48,13 +56,24 @@ function App() {
             <Route path="/" element={<HomePage />} />
             {!isLoggedIn && <Route path="/login" element={<LoginPage />} />}
             {!isLoggedIn && <Route path="/signup" element={<SignUp />} />}
+
             <Route path="/contact" element={<Contact />} />
             <Route path="/payment" element={<PaymentForm />} />
+            <Route path='/verify' element={<VerifyEmail/>} />
             <Route path='/search' element={<SearchResult />} />
             <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer />
-
+        <Rodal
+            className="modals"
+            visible={cartOpen}
+            onClose={closeCart}
+            closeOnEsc="true"
+            animation="slideLeft"
+            showMax="true"
+        >
+            <Cart />
+        </Rodal>
 
     </CartContext.Provider>
 

@@ -1,6 +1,8 @@
 
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState,useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import AuthContext from '../store/authContext';
+import VerifyEmail from './VerifyEmail';
 
 function SignUp() {
     const [error, setError] = useState()
@@ -66,7 +68,10 @@ function SignUp() {
 
 
     const formValid = emailValid && emailValid && passwordValid
-
+    
+    const authCtx = useContext(AuthContext)
+    const navigate = useNavigate()
+    
     const submitHandler = async (event) => {
         event.preventDefault();
         if (formValid) {
@@ -80,25 +85,28 @@ function SignUp() {
                         returnSecureToken: true
                     }),
                     headers: {
-                    'Content-Type': 'application/json'
+                        'Content-Type': 'application/json'
                     }
 
                 })
+        
             setLoading(false)
             const data = await response.json()
-            // if (data && data.error && data.error.message) {
-            //     setError(data.error.message)
-            //     alert(error)
-            // }
+           
+         
             if (data.error) {
                 setError(data.error.message)
                 alert(error)
+            } else {
+                authCtx.login(data.idToken)
+                navigate('/verify')
             }
-          
-            console.log(data)
+      
+
+        //  console.log(data)
             setEmailTouched(false);
         } else {
-         setEmailTouched(true)
+            setEmailTouched(true)
             setNameTouched(true)
             setPasswordTouched(true)
 
@@ -109,13 +117,15 @@ function SignUp() {
         <div className='logins'>
             <div className="contact-form">
                 <h4>SignUp</h4>
-                <p className='error'>{ error}</p>
+                <p className='error'>{error}</p>
                 <input
                     type='text'
+                    name='name'
                     onChange={firstNameHandler}
                     onBlur={firstNameBlurHandler}
                     className={NameClass}
                     value={firstName}
+
                     placeholder="enter your name"
                 />
                 {nameInvalid && (
@@ -126,6 +136,7 @@ function SignUp() {
 
                 <input
                     type='email'
+                    name='email'
                     onChange={emailHandler}
                     onBlur={emailBlurHandler}
                     className={emailClass}

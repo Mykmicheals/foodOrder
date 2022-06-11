@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Loading from '../components/Loading';
 import AuthContext from '../store/authContext';
 import { Icon } from "@iconify/react";
+import VerifyEmail from './VerifyEmail';
 
 function Login() {
   const navigate = useNavigate()
@@ -70,6 +71,7 @@ function Login() {
       const data = await response.json()
       authCtx.login(data.idToken)
       navigate('/')
+
       if (data.error) {
         setError('Invalid email and password combination')
         setPassword('')

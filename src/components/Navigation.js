@@ -39,8 +39,8 @@ function Navigation() {
       </span>
       <span className="nav-span">
        
-          <span onClick={cartHandler}>My Cart <span id='cart-number'>{totalUniqueItems}
-          </span> </span>
+          <span onClick={cartHandler}>My Cart <span id='cart-number'>{totalUniqueItems}</span>
+        </span>
      
       </span>
       <span className="nav-span">
