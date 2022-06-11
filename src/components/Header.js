@@ -15,6 +15,10 @@ function Header() {
     setShow((showNav) => !showNav);
   };
 
+  const closeNav = () => {
+    setShow(false)
+  }
+
   const authCtx = useContext(AuthContext)
 
 let isLoggedIn = authCtx.isLoggedIn
@@ -32,15 +36,15 @@ let isLoggedIn = authCtx.isLoggedIn
       <Navigation />
 
       {showNav && (
-        <nav className="res-navigation">
-          <span className="res-span">
+        <nav onClick={showNav} className="res-navigation">
+          <div className="res-span">
             <Link to="/">
               <p>Home</p>
             </Link>
-          </span>
+          </div>
           <span className="res-span">
             <NavLink activeClassName="active" to="/cart">
-              <span>My Cart {totalUniqueItems}</span>
+              <p>My Cart {totalUniqueItems}</p>
             </NavLink>
           </span>
           <span className="res-span">
@@ -51,7 +55,7 @@ let isLoggedIn = authCtx.isLoggedIn
           {!isLoggedIn && 
             <span className="res-span">
             <NavLink activeClassName="active" to="/login">
-              <span>Login</span>
+              <p>Login</p>
             </NavLink>
           </span>
           }
@@ -66,7 +70,12 @@ let isLoggedIn = authCtx.isLoggedIn
       )}
 
       <span onClick={menuHandler} className="icon">
-        <Icon icon="bx:menu-alt-right" />
+        <span className="res-span">
+          <Link to="/contact">
+            <Icon icon="bx:menu-alt-right" />
+          </Link>
+        </span>
+     
       </span>
     </div>
   );

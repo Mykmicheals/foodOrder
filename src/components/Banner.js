@@ -18,6 +18,7 @@ function Banner() {
         speed: 2000,
         autoplaySpeed: 3000,
         dots: true,
+        arrows: false,
     };
 
     return (

@@ -15,6 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AuthContext from './store/authContext';
 import Error404 from './pages/Error404';
+import Head from './components/Head';
 
 
 
@@ -45,18 +46,12 @@ function App() {
         <Header />
         <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* <Route path="/cart" element={<Cart />} /> */}
             {!isLoggedIn && <Route path="/login" element={<LoginPage />} />}
             {!isLoggedIn && <Route path="/signup" element={<SignUp />} />}
-
             <Route path="/contact" element={<Contact />} />
             <Route path="/payment" element={<PaymentForm />} />
-
-
             <Route path='/search' element={<SearchResult />} />
             <Route path="*" element={<Error404 />} />
-
-
         </Routes>
         <Footer />
 

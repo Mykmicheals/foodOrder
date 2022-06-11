@@ -11,10 +11,12 @@ import Card from "./Card";
 import Rodal from "rodal";
 import Cart from "./Cart";
 import { useCart } from "react-use-cart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ModalImage from "react-modal-image";
 
 function FoodShow() {
+
+  const navigate = useNavigate()
 
   const [userInput, setInput] = useState("");
   const cartCtx = useContext(CartContext);
@@ -46,20 +48,24 @@ function FoodShow() {
     cartCtx.dataHandler(filteredData);
   }, [userInput]);
 
+  const submitHandler = (event) => {
+    event.preventDefault()
+    navigate('/search')
+  }
 
   return (
     <Fragment>
       <div id="search-bar">
-        <span>
-          {" "}
-          <input onChange={inputHandler} placeholder="Search For Meal..." />
-          <i>
-            <Icon icon="carbon:search" inline={true} />
-          </i>
-        </span>
-        <Link to="/search">
-          <button className='search-btn'>Search</button>
-        </Link>
+        <form onSubmit={submitHandler}>
+          <span>
+            <input onChange={inputHandler} placeholder="Search For Meal..." />
+            <i>
+              <Icon icon="carbon:search" inline={true} />
+            </i>
+          </span>
+          <button type='submit' className='search-btn'>Search</button>
+
+        </form>
       </div>
       <h2 className="header-section">Available Meals</h2>
       <div className="foodShow">
@@ -101,8 +107,6 @@ function FoodShow() {
         onClose={cartCtx.cartFunc}
         closeOnEsc="true"
         animation="slideLeft"
-        // height="400"
-
         showMax="true"
       >
         <Cart />

@@ -67,12 +67,18 @@ h1 {
 
 .res-navigation {
   background-color: white;
-  width: 1000%;
+  display: none;
+  width: 200%;
   z-index: 999;
   -webkit-box-shadow: 0 8px 6px -6px #333;
   -moz-box-shadow: 0 8px 6px -6px #333;
   box-shadow: 0 8px 6px -6px #333;
-  margin-top: -0.9rem;
+  margin-top: -0.7rem;
+}
+
+.res-span p {
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 
@@ -100,6 +106,10 @@ h1 {
     display: block;
     cursor: pointer;
     top: 1rem;
+  }
+
+  .res-navigation{
+    display: block;
   }
 }
 
@@ -155,6 +165,8 @@ h1 {
 
 }
 
+@media (max-width:700px) {}
+
 .reward {
   margin: 8rem auto;
   text-align: center;
@@ -169,6 +181,26 @@ h1 {
 @media (max-width:700px) {
   .banner-second-img {
     width: 30rem;
+  }
+
+  .banner-second h3 {
+    font-size: 1.8rem;
+  }
+
+  .banner-second p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width:500px) {
+  .banner-second-img {
+    width: 23rem;
+  }
+}
+
+@media (max-width:400px) {
+  .banner-second-img {
+    width: 19rem;
   }
 }
 
@@ -217,6 +249,13 @@ h1 {
   border-radius: 5px;
   background-color: #9b211b;
   outline: 0;
+}
+
+@media (max-width:400px) {
+  #search-bar input {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
 }
 
 .card {
@@ -323,7 +362,7 @@ h1 {
 }
 
 .cart {
-  margin-top: 1rem; 
+  margin-top: 1rem;
 }
 
 .cart-amount {
@@ -395,40 +434,40 @@ h1 {
 
 /* <--------------login------------> */
 
-.logins{
- margin: 8rem auto;
- width: 50%; 
+.logins {
+  margin: 8rem auto;
+  width: 50%;
 
 }
 
-.d-account{
+.d-account {
   margin-top: 2rem;
   text-align: center;
 }
 
-.logins small{
+.logins small {
   text-align: left;
 }
 
-.logins-btn{
- margin-top: 2rem; 
- display: block;
- background-color: #9b211b;
- color: #fff;
- border: 0;
- width: 7rem;
- height: 2.4rem;
- border-radius: 4rem;
+.logins-btn {
+  margin-top: 2rem;
+  display: block;
+  background-color: #9b211b;
+  color: #fff;
+  border: 0;
+  width: 7rem;
+  height: 2.4rem;
+  border-radius: 4rem;
 }
 
-.password-input{
+.password-input {
   position: relative;
 }
 
-.password-eye{
+.password-eye {
   position: absolute;
   top: 8px;
-  right:70px;
+  right: 70px;
 }
 
 .login {
@@ -548,6 +587,28 @@ h1 {
   margin: auto;
 }
 
+@media (max-width:1024px) {
+  .logins{
+    width: 65%;
+  }
+}
+
+@media (max-width:800px) {
+  .logins {
+    width: 75%;
+  }
+}
+
+@media (max-width:600px) {
+  .logins {
+    width: 90%;
+  }
+  .password-eye {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+  }
+}
 
 /* ..........search............ */
 
@@ -566,6 +627,7 @@ h1 {
   padding: 5rem;
   margin: auto;
   text-decoration: none;
+  margin-top: 4rem;
 }
 
 .footer-top div {
@@ -604,11 +666,11 @@ h1 {
 @media(max-width:600px) {
   .footer-top {
     grid-template-columns: 1fr;
-    width: 90%;
+    width: 100%;
   }
 
   .footer-top li {
-    margin-bottom: 2rem;
+    padding-bottom: 15rem;
   }
 
   .footer-top {
@@ -634,12 +696,22 @@ h1 {
   padding: 3rem;
 }
 
+
 .contact-info {
   background-color: #fff;
   box-shadow: 0px 0px 20px 0px rgba(102, 102, 102, 0.15);
   padding: 20px;
   width: 70%;
 
+}
+
+@media (max-width:1300px) {
+  .contact {
+    width: 100%;
+  }
+  .contact-info {
+    width: 85%;
+  }
 }
 
 .contact-container {
@@ -691,9 +763,9 @@ h1 {
   text-transform: uppercase;
 }
 
-.error404-img{
-width: 100%;
-height: 30rem;
+.error404-img {
+  width: 100%;
+  height: 30rem;
 }
 
 .contact-head {
@@ -723,7 +795,7 @@ height: 30rem;
 
 }
 
-.invalid-input{
+.invalid-input {
   border-color: rgb(238, 16, 16);
 }
 
@@ -739,6 +811,31 @@ height: 30rem;
     margin: auto;
     margin-bottom: 2rem;
   }
+  .contact-form{
+    margin: auto;
+  }
 }
 
+.account-icon {
+  position: absolute;
+ top: 5px;
+}
 
+.account-icon i {
+  margin-top: 10rem;
+  margin-left: 1.3rem;
+  font-size: 1.5rem;
+  color: #9b211b;
+  cursor: pointer;
+}
+
+.account-overlay {
+  background-color: rgb(218, 213, 213);
+  color: black;
+  padding: 0.3rem 2rem;
+  margin-left: 2rem;
+}
+
+/* .account-overlay p{
+
+} */
