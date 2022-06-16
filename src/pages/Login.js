@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer';
 import Loading from '../components/Loading';
@@ -35,10 +35,10 @@ function Login() {
   }
 
   const showPasswordHandler = (event) => {
-    setShowPassword(showPassword=>!showPassword)
+    setShowPassword(showPassword => !showPassword)
   }
 
-  var passInputType = showPassword?'text':'password'
+  var passInputType = showPassword ? 'text' : 'password'
 
   const emailClass = emailInvalid
     ? "contact-form-input invalid-input"
@@ -90,43 +90,45 @@ function Login() {
 
 
   if (loading) {
-   return <Loading />
- } else { return (
+    return <Loading />
+  } else {
+    return (
       <div className='logins'>
-            <div className="contact-form">
+        <div className="contact-form">
           <label>Login</label>
-        <p className='error'>{error}</p>
+          <p className='error'>{error}</p>
           <input
-                    type='email'
-                    onChange={emailHandler}
-                    onBlur={emailBlurHandler}
-                    className={emailClass}
-                    value={email}
-                    placeholder="enter email-address"
+            type='email'
+            onChange={emailHandler}
+            onBlur={emailBlurHandler}
+            className={emailClass}
+            value={email}
+            placeholder="enter email-address"
           />
-                {emailInvalid && (
-                    <small className="error">Pls enter a valid email</small>
-        )}
-        
-        <div className='password-input'>
-          <input
-            type={passInputType}
-            className='contact-form-input'
-            placeholder='enter your password'
-            onChange={passwordHandler}
+          {emailInvalid && (
+            <small className="error">Pls enter a valid email</small>
+          )}
+
+          <div className='password-input'>
+            <input
+              type={passInputType}
+              className='contact-form-input'
+              placeholder='enter your password'
+              onChange={passwordHandler}
             // onChange={showPasswordHandler}
-                    
-        />
-        <i onClick={showPasswordHandler} className='password-eye'>  <Icon icon="emojione-v1:eye" inline={true} /></i>
-        </div>
-        <p className='d-account'>Dont have an account? <Link to='/signup'>Signup</Link></p>
-           <button onClick={submitHandler} className="logins-btn">
-              Login             
+
+            />
+            <i onClick={showPasswordHandler} className='password-eye'>  <Icon icon="emojione-v1:eye" inline={true} /></i>
+          </div>
+          <p className='d-account'>Dont have an account? <Link to='/signup'>Signup</Link></p>
+          <button onClick={submitHandler} className="logins-btn">
+            Login
           </button>
-            </div>
-        
-    </div>
-  )}
+        </div>
+
+      </div>
+    )
+  }
 }
 
 export default Login

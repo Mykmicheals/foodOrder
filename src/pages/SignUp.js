@@ -2,7 +2,7 @@
 import React, { useState,useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthContext from '../store/authContext';
-import VerifyEmail from './VerifyEmail';
+
 
 function SignUp() {
     const [error, setError] = useState()
